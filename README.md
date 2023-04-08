@@ -1,44 +1,61 @@
 
 # SystemBOT
-A multi-purpose discord BOT created to be useful and nice to use.
+
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
+![Languages Count](https://img.shields.io/github/languages/count/theSystemFall/SystemBOT)
+![Top language](https://img.shields.io/github/languages/top/theSystemFall/SystemBOT)
+
+### What is this ?
+*SystemBOT is a personal project created to be a multi purpose discord bot with moderation, economy, and fun features*
+
+## Table of contents
+- [SystemBOT](#systembot)
+    - [What is this ?](#what-is-this-)
+  - [Table of contents](#table-of-contents)
+  - [Running](#running)
+      - [1. **Some things to know before running**](#1-some-things-to-know-before-running)
+      - [2. **Clone this repository to your machine**](#2-clone-this-repository-to-your-machine)
+      - [3. **Install dependencies**](#3-install-dependencies)
+      - [4. **Create the data directories**](#4-create-the-data-directories)
+      - [5. **Run the bot**](#5-run-the-bot)
+  - [Privacy Policy and Terms of Service](#privacy-policy-and-terms-of-service)
+  - [License](#license)
+
 
 ## Running
 
 *I would prefer you don't run an instance of my bot, just join my server to use it, the code is open-source for educational purposes.*
 
 Nevertheless, the installation steps are as follows:
-1.  **Some things to know before running**
+#### 1. **Some things to know before running**
 
-The project was developed on a Linux environment and it's highly recommended that you run it on the same.
-Make sure you have Python3.10 or higher installed and [virtualenv](https://virtualenv.pypa.io/en/latest/installation.html) installed via pip, you can install it using `$ python3.10 -m pip install --user virtualenv`
+This project was developed on a Windows environment and using Python 3.11, it's highly recommended that you run it on the same to avoid any bugs.
 
-2.  **Clone this repository to your machine**
+#### 2. **Clone this repository to your machine**
 
-Run `$ git clone -b production https://github.com/SystemFalll/systembot` to get the production version (recommended).
+```bash
+$ git clone https://github.com/theSystemFall/SystemBOT
+```
+#### 3. **Install dependencies**
 
-Run `$ git clone -b development https://github.com/SystemFalll/systembot` to get the development version (not recommended).
+```bash
+$ pip install -r requirements.txt
+```
 
-3.  **Setup venv**
+#### 4. **Create the data directories**
 
-Access the project folder if you haven't already `$ cd gaymerbot` 
-Then just do  `$ python3.10 -m virtualenv venv`
+Create the following directories inside the project folder for the config and logs files, see [base_config.yaml]() for a basic config structure.
+```bash
+.
+└── data
+    ├── config.yaml
+    └── logs
+```
 
-4.  **Install dependencies**
-
-Activate the virtual enviroment by running `$ source venv/bin/activate`
-And install the required dependencies  `$ python3.10 -m pip install -r requirements.txt`
-
-4.  **Create data files**
-
-Run `$ mkdir data && mkdir data/logs && touch data/config.yaml`
-See *base_config.yaml* for a basic config structure
-
-5.  **Launching the bot**
-
-Finally run the bot using `$ python3.10 launcher.py [--options]`
-Options:
-    `--debug`  launch with debug mode.
-    `--help`  Show help message.
+#### 5. **Run the bot**
+```bash
+$ python launcher.py
+```
 
 ## Privacy Policy and Terms of Service
 
