@@ -44,11 +44,11 @@ $ pip install -r requirements.txt
 
 #### 4. **Create the data directories**
 
-Create the following directories inside the project folder for the config and logs files, see [base_config.yaml]() for a basic config structure.
+Create the following directories inside the project folder for the config and logs files, see [base_config.ini]() for a basic config structure.
 ```bash
 .
 └── data
-    ├── config.yaml
+    ├── config.ini
     └── logs
 ```
 
