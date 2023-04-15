@@ -36,7 +36,8 @@ log = logger.create(
 
 
 class Client(commands.Bot):
-    """Represents a Discord bot. This class is a subclass of discord.ext.commands.Bot"""
+    """Represents a Discord bot.
+    This class is a subclass of discord.ext.commands.Bot"""
 
     def __init__(self, config: MutableMapping, initial_extensions: Optional[tuple]) -> None:
         self.initial_extensions: Optional[tuple] = initial_extensions
