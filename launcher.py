@@ -6,7 +6,7 @@ from typing import NoReturn
 import configparser
 from discord.ext import commands
 
-import systembot
+from systembot.client import Client
 from systembot.modules import logger
 
 log = logger.create(
@@ -43,7 +43,7 @@ def main() -> None:
 
     config = configparser.ConfigParser()
     config.read('./data/config.ini')
-    client = systembot.Client(config, initial_extensions)
+    client = Client(config, initial_extensions)
     asyncio.run(run_bot(client))
 
 
