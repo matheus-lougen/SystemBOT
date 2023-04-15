@@ -34,11 +34,10 @@ def main() -> None:
     )
 
     initial_extensions = (
-        'commands.developer_commands',
-        'commands.user_commands',
-        'music.commands',
-        'music.events',
-        'music.exceptions',
+        'systembot.extensions.commands.user_commands',
+        'systembot.extensions.music.commands',
+        'systembot.extensions.music.events',
+        'systembot.extensions.music.exceptions',
     )
 
     config = configparser.ConfigParser()

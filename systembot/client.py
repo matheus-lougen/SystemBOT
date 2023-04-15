@@ -51,59 +51,6 @@ class Client(commands.Bot):
 
     async def setup_hook(self) -> Coroutine[Any, Any, None]:
         """Executed only once on the client's setup"""
+        await self.load_extension('jishaku')
         for extension in self.initial_extensions:
             await self.load_extension(extension)
-
-    async def load_extension(self, name: str, *, package: Optional[str] = None) -> Coroutine[Any, Any, None]:
-        """Loads an extension.
-        An extension is a python module that contains commands, cogs, or listeners.
-        """
-        try:
-            start_time = time.process_time()
-            await super().load_extension(f'systembot.extensions.{name}')
-            load_time = time.process_time() - start_time
-        except (
-            commands.ExtensionAlreadyLoaded,
-            commands.ExtensionNotFound,
-            commands.ExtensionFailed,
-            commands.NoEntryPointError,
-        ):
-            log.exception('An error ocurred while trying to load the EXTENSION: [%s]', name)
-        else:
-            log.info('Sucessfully loaded the EXTENSION: [systembot.extensions.%s] in %s seconds', name, load_time)
-
-    async def unload_extension(self, name: str, *, package: Optional[str]) -> Coroutine[Any, Any, None]:
-        """Unloads an extension.
-        When the extension is unloaded, all commands, listeners, and cogs are removed from the bot and the module is
-        un-imported
-        """
-        try:
-            await super().unload_extension(f'systembot.extensions.{name}')
-        except (
-            commands.ExtensionAlreadyLoaded,
-            commands.ExtensionNotFound,
-            commands.ExtensionFailed,
-            commands.NoEntryPointError,
-        ):
-            log.exception('An error ocurred while unloading the EXTENSION: [systembot.extensions.%s]', name)
-        else:
-            log.info('Sucessfully unloaded the EXTENSION: [systembot.extensions.%s]', name)
-
-    async def reload_extension(self, name: str, *, package: Optional[str]) -> Coroutine[Any, Any, None]:
-        """Reloads an extension.
-        This replaces the extension with the same extension, only refreshed. This is equivalent to a unload_extension
-        followed by a load_extension
-        """
-        try:
-            start_time = time.process_time()
-            await super().reload_extension(f'systembot.extensions.{name}')
-            reload_time = time.process_time() - start_time
-        except (
-            commands.ExtensionAlreadyLoaded,
-            commands.ExtensionNotFound,
-            commands.ExtensionFailed,
-            commands.NoEntryPointError,
-        ):
-            log.exception('An error ocurred while reloading the EXTENSION: [systembot.extensions.%s]', name)
-        else:
-            log.info('Sucessfully reloaded the EXTENSION: [systembot.extensions.%s] in %s seconds', name, reload_time)
