@@ -23,12 +23,12 @@ SOFTWARE.
 """
 
 import time
-from typing import Any, Coroutine, Optional
+from typing import Any, Coroutine, Optional, MutableMapping
 
 import discord
 from discord.ext import commands
 
-from systembot.modules import Config, logger
+from systembot.modules import logger
 
 log = logger.create(
     __name__, level=logger.DEBUG, handlers=[logger.StreamHandler(), logger.FileHandler(f'./data/logs/{__name__}.log')]
@@ -38,9 +38,9 @@ log = logger.create(
 class Client(commands.Bot):
     """Represents a Discord bot. This class is a subclass of discord.ext.commands.Bot"""
 
-    def __init__(self, config: Config, initial_extensions: Optional[tuple]) -> None:
+    def __init__(self, config: MutableMapping, initial_extensions: Optional[tuple]) -> None:
         self.initial_extensions: Optional[tuple] = initial_extensions
-        self.config: Config = config
+        self.config: MutableMapping = config
 
         super().__init__(
             command_prefix='!',
